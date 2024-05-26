@@ -18,16 +18,7 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-const corsOptions = {
-    origin: ["https://13.228.225.19",
-        "https://18.142.128.26",
-        "https://54.254.162.138",
-        "https://main--rentify-hv.netlify.app/"],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 
