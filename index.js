@@ -5,7 +5,7 @@ import authRoutes from "./routes/auth.route.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import cors from "cors";
+// import cors from "cors";
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
 
 
 
