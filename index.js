@@ -18,7 +18,14 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+const corsOptions = {
+    origin: ["13.228.225.19",
+        "18.142.128.26",
+        "54.254.162.138"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
 
 
 
