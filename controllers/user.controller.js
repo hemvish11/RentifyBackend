@@ -137,9 +137,7 @@ export const sendEmail = async (req, res, next) => {
 
 export const updateUser = async (req, res, next) => {
     // koi khudke account se dusre ka account delete na kr paaye
-    if (req.user.id !== req.params.id) {
-        return next(errorHandler(401, "You can update only your account"));
-    }
+    
 
     try {
         // agr password khali nhi h kewal tbhi password update karo
@@ -179,9 +177,6 @@ export const updateUser = async (req, res, next) => {
 
 export const updateUserProperty = async (req, res, next) => {
     // koi khudke account se dusre ka account delete na kr paaye
-    if (req.user.id !== req.params.id) {
-        return next(errorHandler(401, "You can update only your account"));
-    }
 
     try {
         // agr password khali nhi h kewal tbhi password update karo
@@ -201,9 +196,6 @@ export const updateUserProperty = async (req, res, next) => {
 
 
 export const updateLikes = async (req, res, next) => {
-    if (req.body.sellerId !== req.params.id) {
-        return next(errorHandler(401, "You can update only your account"));
-    }
 
     try {
         const user = await User.updateOne(
@@ -225,9 +217,6 @@ export const updateLikes = async (req, res, next) => {
 
 
 export const updateMyLikedProperties = async (req, res, next) => {
-    if (req.user.id !== req.params.id) {
-        return next(errorHandler(401, "You can update only your account"));
-    }
 
     try {
         const user = await User.findByIdAndUpdate(req.params.id,
@@ -255,9 +244,7 @@ export const updateMyLikedProperties = async (req, res, next) => {
 // -----------------------------------------Delete User Starts---------------------------------------------------------------
 
 export const deleteUser = async (req, res, next) => {
-    if (req.body.id !== req.params.id) {
-        return next(errorHandler(401, "You can delete only your account"))
-    }
+    
 
     try {
         await User.findByIdAndDelete(req.params.id);
